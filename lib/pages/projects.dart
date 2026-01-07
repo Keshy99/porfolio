@@ -255,7 +255,7 @@ class _ProjectsPageState extends State<ProjectsPage> {
           myImage('chatapp/17.jpg'),
           myImage('chatapp/14.jpg'),
           myImage('chatapp/12.jpg'),
-          myImage('chatapp/11.jpg'), 
+          myImage('chatapp/11.jpg'),  
         ],
             'K Chat',
             'A real time chatting application that aloows sending messages and images, with some basic features like otp verification and reset password amongst others. It was built with Flutter and firebase as the backend. ',
