@@ -1,47 +1,47 @@
+html,
 body {
-	font:18px/1.2em 'Josefin Slab', Calibri, serif;
-	padding: 0;
-	font-weight: 501;
-	margin: 0;
-	background-color: #121316;
-	box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  background-color: #0E0E10;
 }
-/**loader**/
-.loader {
-	height: 50px;
-	min-height: 100vh;
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	animation: rotate 3s linear infinite;
+
+/* Loading indicator shown before Flutter starts */
+#loader {
+  position: fixed;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  background-color: #0E0E10;
+  transition: opacity 0.4s ease;
 }
-@keyframes rotate {
-	to {
-		transform: rotate(deg);
-	}
+
+#loader.hidden {
+  opacity: 0;
+  pointer-events: none;
 }
-.circle {
-	display: inline;
-	background-color: #222532;
-	height: 60px;
-	margin-right: 5px;
-	width: 10px;
-	animation: grow 1.5s linear infinite;
-	transform: scale(0.3);
-	
+
+#loader .bar {
+  width: 8px;
+  height: 48px;
+  border-radius: 4px;
+  background-color: #2C2C31;
+  transform: scaleY(0.3);
+  animation: grow 1.2s ease-in-out infinite;
 }
-.circle:nth-child(2){
-	display: inline;
-	background-color: white;
-	animation-delay: 0.7s;
-}
-.circle:nth-child(4){
-	display: inline;
-	background-color: white;
-	animation-delay: 0.7s;
-}
+
+#loader .bar:nth-child(2) { animation-delay: 0.1s; background-color: #EECE1A; }
+#loader .bar:nth-child(3) { animation-delay: 0.2s; }
+#loader .bar:nth-child(4) { animation-delay: 0.3s; background-color: #EECE1A; }
+#loader .bar:nth-child(5) { animation-delay: 0.4s; }
+
 @keyframes grow {
-	50% {
-		transform: scale(1);
-	}
+  50% { transform: scaleY(1); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  #loader .bar { animation: none; transform: scaleY(0.6); }
 }

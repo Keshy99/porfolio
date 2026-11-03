@@ -1,11 +1,11 @@
 {
     "name": "Stephen Kings",
     "short_name": "Stephen Kings",
-    "start_url": ".",
+    "start_url": "/",
     "display": "standalone",
-    "background_color": "#000",
-    "theme_color": "#000",
-    "description": "This is a portfolio website for Stephen Kings built with flutter web.",
+    "background_color": "#0E0E10",
+    "theme_color": "#0E0E10",
+    "description": "Stephen Kings - Flutter developer portfolio.",
     "orientation": "portrait-primary",
     "prefer_related_applications": false,
     "icons": [

@@ -9,19 +9,16 @@ environment:
   sdk: ^3.5.0
 
 dependencies:
-  animations: ^2.0.11
-  carousel_slider: ^5.0.0
   community_material_icon: ^5.9.55
   cupertino_icons: ^1.0.8
   easy_image_viewer: ^1.5.1
   flutter:
     sdk: flutter
+  flutter_web_plugins:
+    sdk: flutter
   go_router: ^15.2.4
   google_fonts: ^6.2.1
-  hovering: ^1.0.4
   url_launcher: ^6.3.0
-  url_strategy: ^0.3.0
-
 dev_dependencies:
   flutter_lints: ^6.0.0
   flutter_test:
@@ -40,6 +37,7 @@ flutter:
     - assets/hermex/
     - assets/herssa/
     - assets/excelmind/
+    - assets/excelmindit/
     - assets/sdd/
     - assets/pricing_icons/
     - assets/chatapp/

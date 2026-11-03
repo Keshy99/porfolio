@@ -1,113 +1,52 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
-  <base href="/">
+  <!--
+    $FLUTTER_BASE_HREF is replaced with the value of `--base-href` at build time ("/" by default).
+  -->
+  <base href="$FLUTTER_BASE_HREF">
 
   <meta charset="UTF-8">
-  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
-  <meta name="description" content="Stephen Kings - My portfolio | Web developer, App Developer, Desktop App Developer">
-  <meta name="keywords" content="Stephen Kings, Kings Stephen">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Stephen Kings - Flutter developer building high-performance apps for mobile, web and desktop.">
+  <meta name="keywords" content="Stephen Kings, Kings Stephen, Flutter developer, mobile app developer, portfolio">
   <meta name="author" content="Stephen Kings">
+  <meta name="theme-color" content="#0E0E10">
 
-  <!-- iOS meta tags & icons -->
-  <meta name="apple-mobile-web-app-capable" content="yes">
+  <!-- Social previews -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Stephen Kings - Portfolio">
+  <meta property="og:description" content="Flutter developer building high-performance apps for mobile, web and desktop.">
+  <meta property="og:image" content="icons/android-chrome-512x512.png">
+
+  <!-- iOS -->
+  <meta name="mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black">
-  <meta name="apple-mobile-web-app-title" content="kings">
-  <link rel="apple-touch-icon" href="icons/Icon-192.png">
-  <meta property="og:image" content="icons/android-chrome-512x512.png" />
+  <meta name="apple-mobile-web-app-title" content="Stephen Kings">
+  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
 
   <!-- Favicon -->
-  <link rel="apple-touch-icon" href="icons/apple-touch-icon.png">
-  <link rel="icon" type="image/png" href="favicon.ico" />
+  <link rel="icon" type="image/png" sizes="32x32" href="icons/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="icons/favicon-16x16.png">
+  <link rel="icon" href="favicon.ico">
 
-  <title>Stephen Kings - My portfolio Website</title>
+  <title>Stephen Kings - Portfolio</title>
   <link rel="manifest" href="manifest.json">
-
-  <!-- CSS -->
-  <link rel="stylesheet" type="text/css" href="styles.css">
+  <link rel="stylesheet" href="styles.css">
 </head>
 
-<body id="app-container">
-  <!-- loader -->
-  <div class="loader">
-    <div class="circle"></div>
-
-    <div class="circle"></div>
-
-    <div class="circle"></div>
-
-    <div class="circle"></div>
-
-    <div class="circle"></div>
+<body>
+  <!-- Shown until Flutter renders its first frame; removed in flutter_bootstrap.js -->
+  <div id="loader" aria-label="Loading">
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
+    <div class="bar"></div>
   </div>
 
-  <!-- dafault script from flutter web -->
-  <script>
-    var serviceWorkerVersion = null;
-    var scriptLoaded = false;
-    function loadMainDartJs() {
-      if (scriptLoaded) {
-        return;
-      }
-      scriptLoaded = true;
-      var scriptTag = document.createElement('script');
-      scriptTag.src = 'main.dart.js';
-      scriptTag.type = 'application/javascript';
-      document.body.append(scriptTag);
-    }
-
-    if ('serviceWorker' in navigator) {
-      // Service workers are supported. Use them.
-      window.addEventListener('load', function () {
-        // Wait for registration to finish before dropping the <script> tag.
-        // Otherwise, the browser will load the script multiple times,
-        // potentially different versions.
-        var serviceWorkerUrl = 'flutter_service_worker.js?v=' + serviceWorkerVersion;
-        navigator.serviceWorker.register(serviceWorkerUrl)
-          .then((reg) => {
-            function waitForActivation(serviceWorker) {
-              serviceWorker.addEventListener('statechange', () => {
-                if (serviceWorker.state == 'activated') {
-                  console.log('Installed new service worker.');
-                  loadMainDartJs();
-                }
-              });
-            }
-            if (!reg.active && (reg.installing || reg.waiting)) {
-              // No active web worker and we have installed or are installing
-              // one for the first time. Simply wait for it to activate.
-              waitForActivation(reg.installing || reg.waiting);
-            } else if (!reg.active.scriptURL.endsWith(serviceWorkerVersion)) {
-              // When the app updates the serviceWorkerVersion changes, so we
-              // need to ask the service worker to update.
-              console.log('New service worker available.');
-              reg.update();
-              waitForActivation(reg.installing);
-            } else {
-              // Existing service worker is still good.
-              console.log('Loading app from service worker.');
-              loadMainDartJs();
-            }
-          });
-
-        // If service worker doesn't succeed in a reasonable amount of time,
-        // fallback to plaint <script> tag.
-        setTimeout(() => {
-          if (!scriptLoaded) {
-            console.warn(
-              'Failed to load app from service worker. Falling back to plain <script> tag.',
-            );
-            loadMainDartJs();
-          }
-        }, 4000);
-      });
-    } else {
-      // Service workers not supported. Just drop the <script> tag.
-      loadMainDartJs();
-    }
-  </script>
-
+  <script src="flutter_bootstrap.js" async></script>
 </body>
 
 </html>
